@@ -25,9 +25,7 @@ public function image_save()
 						fclose($fp);
 						$imgdat = addslashes($imgdat);
 						$this->mypage_mo->saveImageToDB($imgdat , $userid);
-						
 						// display blob type from database to view
-						//echo '<img src="data:image/jpeg;base64,'.base64_encode( $userData['R01_Passport_Img_File'] ).'"/>';
 						
 						// save image with blob type in folder pass_img
 						$type = $_FILES["R01_Passport_upload"]["type"]; 
@@ -52,7 +50,6 @@ public function image_save()
 				echo "(ERR)アップロードファイルを選んでください！";
 				$errors =1;
 				exit;
-				//header('Location: mypage2.php');
 			}
 		} else {
 			echo "(ERR)アップロードファイルを選んでください！1111";	

@@ -9,8 +9,6 @@ function savePhoto(){
 			{
 				var READYSTATE_COMPLETED = 4;
 				var HTTP_STATUS_OK = 200;
-				//alert(this.readyState);
-				//alert(this.status);
 				if( this.readyState == READYSTATE_COMPLETED && this.status == HTTP_STATUS_OK ) {
 					var result = xmlHttpRequest.responseText;
 					var res = result.substr(0, 5);

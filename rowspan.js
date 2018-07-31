@@ -8,10 +8,10 @@ $(document).ready(function() {
          span++;
          if (prevTD != "") {
             prevTD.attr("rowspan", span); // ˆÈ‘O‚Ìtd‚É‘®«‚ğ’Ç‰Á‚·‚é
-            $this.remove(); // //Œ»İ‚Ìtd‚ğíœ
+            $this.remove(); // Œ»İ‚Ìtd‚ğíœ
          }
       } else {
-         prevTD     = $this; //   Œ»İ‚Ìtd‚ğ•Û‘¶‚·‚é
+         prevTD     = $this; // Œ»İ‚Ìtd‚ğ•Û‘¶‚·‚é
 		 prevTDVal  = $this.text();
          span       = 1;
       }
