@@ -1,10 +1,8 @@
 <?php 
-public function image_save()
-	{
+	public function image_save() {
 		$userid=$_POST['userid'];
-		if (isset($_FILES["R01_Passport_upload"]))
-		{
-			 if($_FILES["R01_Passport_upload"]["name"] != ""){
+		if (isset($_FILES["R01_Passport_upload"])) {
+			if($_FILES["R01_Passport_upload"]["name"] != ""){
 				$maxFileSize = 10 * 1000 * 1000; //MB
 				if($_FILES["R01_Passport_upload"]["size"] > ($maxFileSize * 1000 * 1000)){
 					$errors=1;
@@ -13,7 +11,7 @@ public function image_save()
 					$filename = stripslashes($_FILES["R01_Passport_upload"]["name"]);
 					$extension = $this->getExtension($filename);
 					$extension = strtolower($extension);
-					if (($extension != "jpg") && ($extension != "jpeg") && ($extension != "png") && ($extension != "gif") && ($extension != "pdf") && ($extension != "BMP")){
+					if (($extension != "jpg") && ($extension != "jpeg") && ($extension != "png") && ($extension != "gif") && ($extension != "pdf") && ($extension != "BMP")) {
 						echo "(ERR)アップロードファイルはJPG/JPEG/GIF/PNG/BMP/PDFでご用意ください。" ;
 						$errors=1;
 						exit;
@@ -36,14 +34,12 @@ public function image_save()
 						$this->mypage_mo->update_img($image_name,$userid);
 						$tmp_name = $_FILES["R01_Passport_upload"]["tmp_name"];
 						move_uploaded_file($tmp_name, $newname);
-						
 						echo base_url().$newname;
 						$userData = array();
 						$userData = $this->mypage_mo->getUserDataById($userid);
 						$this->send_update_mail($userData);
 					}
 				}
-	
 			} else {
 				echo "(ERR)アップロードファイルを選んでください！";
 				$errors =1;
