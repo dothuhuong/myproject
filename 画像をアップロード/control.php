@@ -25,8 +25,6 @@ public function image_save()
 						fclose($fp);
 						$imgdat = addslashes($imgdat);
 						$this->mypage_mo->saveImageToDB($imgdat , $userid);
-						// display blob type from database to view
-						
 						// save image with blob type in folder pass_img
 						$type = $_FILES["R01_Passport_upload"]["type"]; 
 						$result = $this->mypage_mo->get_imgfilename();
